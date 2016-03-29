@@ -8,6 +8,7 @@ import WayofTime.bloodmagic.api.util.helper.PlayerHelper;
 
 import com.google.common.base.Strings;
 
+import WayofTime.bloodmagic.ConfigHandler;
 import lombok.Getter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -180,7 +181,12 @@ public class SoulNetwork extends WorldSavedData
     {
         if (getPlayer() != null)
         {
+<<<<<<< HEAD
             getPlayer().addPotionEffect(new PotionEffect(MobEffects.confusion, 99));
+=======
+            PotionEffect effect = ConfigHandler.antiHitler ? new PotionEffect(Potion.weakness.getId(), 99, 127) : new PotionEffect(Potion.confusion.getId(), 99);
+            getPlayer().addPotionEffect(effect);
+>>>>>>> refs/remotes/WayofTime/1.8
         }
     }
 

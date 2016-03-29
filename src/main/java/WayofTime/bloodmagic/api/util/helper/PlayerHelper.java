@@ -5,6 +5,7 @@ import WayofTime.bloodmagic.api.Constants;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
+import WayofTime.bloodmagic.ConfigHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -96,6 +97,11 @@ public class PlayerHelper
         if (player == null)
             return;
 
+<<<<<<< HEAD
         player.addPotionEffect(new PotionEffect(MobEffects.confusion, 80));
+=======
+        PotionEffect effect = ConfigHandler.antiHitler ? new PotionEffect(Potion.weakness.getId(), 99, 127) : new PotionEffect(Potion.confusion.getId(), 99);
+        player.addPotionEffect(effect);
+>>>>>>> refs/remotes/WayofTime/1.8
     }
 }
