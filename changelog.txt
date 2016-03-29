@@ -1,0 +1,250 @@
+------------------------------------------------------
+Version 2.0.0-20
+------------------------------------------------------
+- Fixed Blood Altar crashing on odd occasions.
+- Fixed GUI of hellfire forge.
+- Fixed issue with Will Chunks not generating when requested in new chunks
+- Fixed issue where Orb Tier was never set for a player internally
+- Fixed Creative Dagger. It now works correctly. Shift + Right Click on an Altar to fill it to capacity.
+- Fixed step height being set to incorrect value. Your Chisels and Bits stairs should work, now!
+- Fixed Bound Tools not being enchantable.
+- Fixed Bound Tools "Beast Mode" breaking blocks unreliably.
+- Fixed Blood Light Sigil not using LP
+- Changed Will system so that it automatically goes into your inventory and then drops any excess Will on the ground.
+- Changed Blood Light to render more particles when the sigil is held to make them easier to find.
+- Added debug commands. These work exactly the same as in the 1.7.10 version
+- [API] Fixed AddToNetworkEvent not being cancellable even though it should be
+- [API] Helper method in NetworkHelper to obtain the highest possible capacity for a given tier.
+
+------------------------------------------------------
+Version 2.0.0-19
+------------------------------------------------------
+- Fixed path blocks so they are actually craftable.
+- Added gui stuff to enable priority in the item routing system: nodes with a lower value priority will be accessed first. (May be rotated in the future)
+- Grayed out the currently active side's button in the item routers.
+- Added Demon Pylon
+- Changed behaviour of Demon Crucible
+- Fully implemented the behaviour of the crystal growing process.
+	- A Demon Crucible will be able to syphon the demon will from the tartaric gems inside of its inventory - right click with a gem to place it into the inventory.
+	- The syphoned will from the gem will go into the chunk, staying in the air - it will not move to neighbouring chunks unless forced to do so through other means
+	- The Demon Pylon draws will in the air from surrounding chunks and puts it into its own chunk - this acts as sort of like a pressure system, where it will even out the will distribution, but only goes one way.
+	- The Demon Crystallizer takes 100 will from the air (need a demon crucible for it to work) and forms a demon crystal on top of it. There is a 10% chance that this crystal will be of a special type.
+	- The Demon Crystals can be mined in order to collect their crystals. These crystals can be used for crafting more powerful stuff. If you have over 1024 will on your person when you right click the crystal, you can harvest a single crystal instead of the entire thing.
+	- You can put the harvested crystals inside of a demon crucible. Each crystal is worth 10 will, so this acts as a way to semi-automate will creation.
+	- When a hellfire forge is inside of a chunk with demon will, it will fill its contained tartaric gem with will.
+	- Changed a few recipes (like the greater tartaric gem) to match this new system.
+
+------------------------------------------------------
+Version 2.0.0-18
+------------------------------------------------------
+- Fixed issue with lava crystal working even their is no LP available.
+- Added upgrade trainer
+- Fixed step height issue with C&B stuff. Apparently step height is now 0.6 by default instead of 0.5.
+- Added Ritual: Song of the Cleansing Soul to remove Living Armour upgrades from the armour.
+- Added Ritual: Ritual of Living Evolution, which is used to set the living armour's max upgrade points to 300.
+- Added Ritual: The Timberman to cut down trees. Requires a chest on top of the MRS in order to collect the drops from harvested trees.
+- Added Ritual: Hymn of Syphoning, which syphons up fluids around it in a 16 block radius and puts the fluid in the tank above it. The tank above it must have at least one bucket of the fluid you want to syphon inside of it.
+- Added Ritual: The Assembly of the High Altar, which places runes and blocks from the inventory above it in the world in the form of a blood altar. Autobuilding altars~
+- Added Ritual: The Gate of the Fold. 
+- Added Ritual: The Filler. Places blocks from the inventory on top of it in the world.
+- Added Ritual: Le Vulcanos Frigius
+
+- Added tooltip to living armour to show the current upgrade points of the armour.
+- Added recipe for the training bracelet. Combine in an anvil with an upgrade tome to set it as the upgrade to train.
+- Ammended range of Zephyr ritual
+- Fixed Green Grove ritual
+- Fixed Crusher ritual so it didn't break everything at once.
+- Removed the FOV effect from the Quick Feet speed upgrade.
+- Minor work on the Demon Crucible.
+- Crucibles now fill the tartaric gems of close-by hellfire forges
+- Fixed rituals not correctly re-activating when taking off a redstone signal after reloading the world.
+- Added Teleposition Sigil, which teleports the user to the bound Teleposer.
+- Added Transposition Sigil, which picks up the block clicked on including the NBT of the given tile.
+
+------------------------------------------------------
+Version 2.0.0-17
+------------------------------------------------------
+- Added Living Armour Upgrades
+	- Solar Powered
+	- Grim Reaper's Sprint
+	- [Thaumcraft] Runic Shielding
+- Fixed Blood Altar's progress resetting when clicking with another item
+- Fixed Divination and Seer sigils crashing when clicking on an altar while not bound
+- Added crafting recipes for the following sigils:
+	- Compression
+	- Phantom Bridge
+	- Ender Severance
+	- Haste
+- Dagger now bypasses checks of armour
+
+------------------------------------------------------
+Version 2.0.0-16
+------------------------------------------------------
+- Fixed a major bug with the Blood Orbs.
+
+------------------------------------------------------
+Version 2.0.0-15
+------------------------------------------------------
+- Added blood lamp sigil array texture and reagent. Made it so the blood lamp sigil will place the light when right clicking on a block.
+- Added magnetism sigil array texture and reagent.
+- Added the ability for the blood altar to have its buffer tanks accessed (Semi-tested)
+- Improved readability for large numbers
+- Fixed break particle for Alchemy Array
+- Waila handling for Alchemy Array
+- Fixed Ritual eating LP when reactivated via a Redstone signal
+- Ritual Stones now always drop blank stones
+- Bound Blade is now enchant-able
+- Goggles of Revealing upgrade for Living Helmet. Combine a Living Helmet and Goggles of Revealing in an Anvil
+- Fixed config for disabling rituals
+- [API] Lots of changes to the binding system. It's now handled automatically for all items that implement IBindable.
+- Added Incense Altar system.
+- Added models for the routing nodes, incense altar, and the hellfire forge.
+
+------------------------------------------------------
+Version 2.0.0-14
+------------------------------------------------------
+- [API] Added support for some IMC methods:
+    - FMLInterModComs.sendMessage("BloodMagic", "teleposerBlacklist", ItemStack)
+    - FMLInterModComs.sendMessage("BloodMagic", "sacrificeValue", "ClassName;Value")
+    - FMLInterModComs.sendMessage("BloodMagic", "greenGroveBlacklist", "domain:name")
+- Fixed the bound sword so that it now drops weak blood shards.
+- Fixed the demon will so that you can actually pick it up!
+
+------------------------------------------------------
+Version 2.0.0-13
+------------------------------------------------------
+- Added recipes and temp textures for path blocks. More path blocks to come.
+- Tweaked the Incense altar and added its recipe.
+- Fixed Blood Light sigil not providing the right coloured particles
+- Added the ability for the divination sigil to look up information about the incense altar.
+- Fix another NPE when checking of a player has a full set of Living Armor
+
+------------------------------------------------------
+Version 2.0.0-12
+------------------------------------------------------
+- This build doesn't exist. Shhh
+
+------------------------------------------------------
+Version 2.0.0-11
+------------------------------------------------------
+- Fix NPE when checking if a player has a full Living Armor set
+
+------------------------------------------------------
+Version 2.0.0-10
+------------------------------------------------------
+- Added recipe for Sentient Armour - craft a Sentient Armour Gem and right click with it to toggle the armour.
+- Added recipes for the Greater and Grand Tartaric gems. These are temporary recipes.
+- Updated textures.
+- Added ability to fill gems from other gems. Right click with a gem to fill other gems in your inventory.
+- Un-nerfed the Ritual Stone recipe to provide 4 again
+- Rituals can now be toggled with Redstone. Provide a redstone signal to the Master Ritual Stone to turn it off.
+- Made the Sentient sword able to block. 
+- Fixed the Sentient Sword so that even when not activated it will still do damage - just at a reduced amount.
+- Made it so that Demon Will will be voided if all of the player's tartaric gems are filled.
+
+------------------------------------------------------
+Version 2.0.0-9
+------------------------------------------------------
+- Fixed the rituals so that they no longer caused nausea no matter what.
+
+------------------------------------------------------
+Version 2.0.0-8
+------------------------------------------------------
+- Fixed crash when activating rituals while operating on servers
+- Added the majority of stuff for the item routing system.
+
+------------------------------------------------------
+Version 2.0.0-7
+------------------------------------------------------
+- JEI now displays more information for Altar recipes. Hover over the Altar image to view it.
+- Added particles to the Blood Altar on the server-side.
+- Allow configuration of entity sacrificial values
+- [API] Allow setting of entity sacrificial values via API. Takes precedence over config values.
+- [API] Method to easily get instances of Items and Blocks
+- [API] Allow mods to blacklist their blocks from the Green Grove ritual/sigil
+
+------------------------------------------------------
+Version 2.0.0-6
+------------------------------------------------------
+- Fixed the LivingArmourTracker for defense so that it no longer ate up armour (om nom nom nom)
+
+------------------------------------------------------
+Version 2.0.0-5
+------------------------------------------------------
+- Tweaked Sentient Sword's will drop rate
+- No longer 1.8.8 compatible
+- Cleaned some clutter from JEI
+- Added a potential fix to some server mod issues.
+
+
+------------------------------------------------------
+Version 2.0.0-4
+------------------------------------------------------
+- Added Physical resistance upgrade (Tough skin)
+- Added health boost upgrade (Healthy)
+- Added melee damage upgrade (Fierce strike)
+- Added trick shot upgrade (Have fun finding it! :D)
+- Added T5 orb recipe and Demonic Activation Crystal
+- Added Rituals:
+	- Animal Growth ritual
+	- Harvest ritual
+	- Magnetism ritual
+	- Crushing ritual
+	- Full Stomach ritual
+	
+- Added parts for the new Demon Will System
+	- Added the Demon Will item
+	- Added the Sentient Sword, which will be powered by consuming demon will
+	- Added a Lesser Tartaric Gem in order to hold onto more will
+	- SSSSSSSSoooooooouuuuuuulllllllllsssssss
+	- Added Hellfire Forge block
+	- Added rudimentary snare and recipe - has 25% chance for monster to drop its soul
+	- Added Sentient Bow
+	- Added Sentient Armour
+	
+- Fixed binding of togglable sigils
+- Added saving for ritual tags
+
+------------------------------------------------------
+Version 2.0.0-3
+------------------------------------------------------
+- Fixed client-side issue when shift-clicking lava crystals into a furnace while on a server.
+- Added poison upgrade to Living Armour
+- Fixed digging upgrade
+- Added self sacrifice upgrade to Living Armour (Tough Palms)
+- Added knockback resistance upgrade to Living Armour, trained via eating (Body Builder)
+
+
+------------------------------------------------------
+Version 2.0.0-2
+------------------------------------------------------
+- Added Life Essence bucket recipe
+- Added the rendering of LP inside of the altar
+- Added Living Armour including some upgrades:
+	- Added speed upgrade
+	- Added digging upgrade
+- Modified Divination Sigil recipe - no longer uses a block of glass because of issues on servers (tempramental)
+- Modified Apprentice Blood Orb recipe to require a block of redstone instead.
+- Added the Reagent Air recipe.
+
+
+------------------------------------------------------
+Version 2.0.0
+------------------------------------------------------
+
+Initial release of the open beta for the mod to Minecraft v1.8.9! This mod version has a lot of changes. Because it is a full-on rewrite, some of the mechanics of the mod have changed/are going to change. As such, the feel of the mod will be slightly different than previous iterations.
+This mod has a large amount of compatibility with the recipe look-up mod, Just Enough Items (JEI). It is VERY much recommended that you download JEI, since it will make your life a lot easier with the new mechanics.
+Because this is a beta of a rewrite, there will be a lot of missing content. I am trying my hardest to add new content as fast as I can, but my team and I are only human and can only code so fast. Please give a little patience while we make the mod the best it possibly can!
+Also, please submit bug reports or feature requests to the github, https://github.com/WayofTime/BloodMagic. We'll get to the issue soon!
+
+New
+- Added "Alchemy Array" crafting - this is achieved by making some "Arcane Ash" and clicking on the ground to create an array. You then click on the array with the first ingredient and then the second - breaking the array will give the items back.
+- Added JEI compatibility
+- Added WAILA compatibility (No more needing 3rd-party addons!)
+
+Changed
+- Lots of internals have changed. Too many to list.
+- A graphical overhaul of everything has been implemented. These textures were provided by CyanideX's Unity texture pack. BBoldt and Yulife (Inap) from the Unity team are our new permanent texture artists.
+
+Bug Fixes
+-
