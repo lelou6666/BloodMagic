@@ -15,19 +15,7 @@ Blood Magic is an arcane art that is practiced by mages who attempt to gather a 
 * [Minecraft Forum Thread](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/1290532-bm)
 * [Curseforge](http://minecraft.curseforge.com/mc-mods/224791-blood-magic)
 * [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J7SNY7L82PQ82)
-
-##Issue Reporting
-
-Please include the following:
-
-* Minecraft version
-* Blood Magic version
-* Forge version/build
-* Versions of any mods potentially related to the issue
-* Any relevant screenshots are greatly appreciated.
-* For crashes:
- * Steps to reproduce
- * ForgeModLoader-client-0.log (the FML log) from the root folder of the client 
+* [Patreon](https://www.patreon.com/BloodMagic)
 
 ##Development Setup
 
@@ -37,11 +25,33 @@ Please include the following:
 4. Open the project in your IDE of choice.
 5. Set `../src/api/java` as a source directory.
 
+####IntelliJ IDEA extra steps
+
+1. Navigate to `File > Settings > Plugins > Browse repositories...`. Search for Lombok and install the plugin.
+2. Navigate to `File > Settings > Build, Execution, Deployment > Compiler > Annotation Processors`. Check `Enable annotation processing`. 
+
 [Setup video](https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be) by LexManos. For more information, refer to the [Forge Forums](http://www.minecraftforge.net/forum/index.php/topic,14048.0.html).
+
+
+##Developing Addons
+
+Add to your build.gradle:
+
+    repositories {
+      maven {
+        url "http://tehnut.info/maven/"
+      }
+    }
+
+    dependencies {
+      deobfCompile "com.wayoftime.bloodmagic:BloodMagic:<BLOODMAGIC-VERSION>"
+    }
+    
+`<BLOODMAGIC-VERSION>` can be found on CurseForge (or via the Maven itself), check the file name of the version you want.
 
 ##Custom Builds
 
-###Custom builds are unsupported. If you have an issue using a build not by me (WayofTime), it is not guaranteed that you will get support.
+**Custom builds are *unsupported*. If you have an issue while using an unofficial build, it is not guaranteed that you will get support.**
 
 ####How to make a custom build:
 
@@ -70,8 +80,6 @@ This mod requires "Minecraft Forge" in order to operate. It is incredibly easy t
 **Q**: My weak blood orb doesn't show my current LP! Fix it please.
 
 **A**: The mechanic for viewing the player's essence has changed due to some issues with mechanics. You now need a Divination Sigil to view a player's essence. It does other things, too, so it is worth it!
-
-
 
 **Q**: Why am I dying so much?
 
@@ -110,8 +118,6 @@ This mod requires "Minecraft Forge" in order to operate. It is incredibly easy t
 
 **A**: This is a config option. The person you saw with an orb had a config that changed the knife to an orb. The orb and knife function exactly the same way, but you can change it in the configs by looking for the "Idontlikefun" option.
 
-
 **Q**: When I respawn, I appear to only come back with 3 hearts. What's happening?
-
 
 **A**: This is due to another config option in the "WhimpySettings," which is due to my attempt to combat Zerg Rushing. You can disable this if you really want to, but it shouldn't hurt unduly.
